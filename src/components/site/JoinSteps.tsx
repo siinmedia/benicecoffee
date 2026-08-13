@@ -41,12 +41,14 @@ export function JoinSteps() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
         <Reveal className="relative w-full sm:w-[58%]">
           <div className="overflow-hidden rounded-[16px]">
-            <motion.img
-              src={owner}
-              loading="lazy"
-              width={900}
-              height={760}
-              alt="Mitra Be Nice Coffee tersenyum di depan boothnya"
+            <motion.video
+              src="https://v19.tiktokcdn-us.com/0054daf406a401ac2e57c85da530a59c/6a7d9c25/video/tos/alisg/tos-alisg-pve-0037/oUfrIEpxQf0vhJv73EDcED7TAQFBDUA0eDDSZE/?a=1233&bti=OUBzOTg7QGo6OjZAL3AjLTAzYCMxNDNg&&bt=1113&ft=nF.Th0sq1lgvjSDXYSxROLVUM6~OUE8RpsnzXtG&mime_type=video_mp4&rc=NDVnOjg6OzQ1ZDQ2OjVlOkBpM3FmdXk5cnduPDMzODgzNUAyNTUxY2E2NTUxNGBhMjE2YSM1NHNsMmQ0aHFhLS1kLzZzcw%3D%3D&vvpl=1&l=202608130426390F1A76F95468CA0A7355&btag=e00090000"
+              poster={owner}
+              controls
+              playsInline
+              muted
+              loop
+              preload="metadata"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.5 }}
               className="h-72 w-full object-cover"
@@ -74,23 +76,7 @@ export function JoinSteps() {
             </p>
           </div>
 
-          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2">
-            <CircleButton
-              label="Lihat testimoni"
-              variant="white"
-              href="#testimoni"
-            >
-              <Arrow className="rotate-[225deg]" />
-            </CircleButton>
-
-            <CircleButton
-              label="Semua testimoni mitra"
-              variant="white"
-              href="#testimoni"
-            >
-              <Arrow className="rotate-45" />
-            </CircleButton>
-          </div>
+         
         </Reveal>
 
         <Reveal
