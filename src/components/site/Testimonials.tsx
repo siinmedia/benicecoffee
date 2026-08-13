@@ -12,25 +12,25 @@ const testimonials = [
   {
     img: m1,
     name: "Rifky Ananda",
-    role: "Mitra Signature · Bandung",
+    role: "Mitra Neon Box Luxury · Bandung",
     quote: "Balik modal 5 bulan. Rata-rata 90 cup per hari sejak bulan kedua.",
   },
   {
     img: m2,
     name: "Nadia Salsabila",
-    role: "Mitra Daily Brew · Yogyakarta",
+    role: "Mitra Paket Platinum · Yogyakarta",
     quote: "Resepnya konsisten, pelanggan kampus jadi langganan tiap pagi.",
   },
   {
     img: m3,
     name: "Bagas Prakoso",
-    role: "Mitra Starter Cup · Bekasi",
+    role: "Mitra Paket Portable · Bekasi",
     quote: "Modal kecil tapi boothnya rapi. Minggu pertama sudah ramai.",
   },
   {
     img: m4,
     name: "Ratna Wijaya",
-    role: "Mitra Master Area · Surabaya",
+    role: "Mitra Neon Box Premium · Surabaya",
     quote: "Sekarang saya pegang tiga outlet. Tim support-nya benar-benar mendampingi.",
   },
 ];
