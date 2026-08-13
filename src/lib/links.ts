@@ -1,8 +1,8 @@
 export const WHATSAPP =
-  "https://wa.me/6281234567890?text=Halo%20Benice%20Coffee%2C%20saya%20tertarik%20dengan%20paket%20usaha";
+  "https://utm.bukausaha.web.id/r.php?a=cv-maha-niaga-artha&s=website-utama";
 
 export function waFor(paket: string) {
-  return `https://wa.me/6281234567890?text=${encodeURIComponent(
+  return `https://utm.bukausaha.web.id/r.php?a=cv-maha-niaga-artha&s=website-utama&text=${encodeURIComponent(
     `Halo Benice Coffee, saya tertarik dengan paket ${paket}`,
   )}`;
 }
