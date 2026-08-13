@@ -105,15 +105,13 @@ export function Menu() {
               <div className="mt-3 flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="truncate text-[12px]">{m.name}</p>
-
+                  <p className="mt-0.5 text-[10px] leading-relaxed text-muted-foreground">
+                    {m.group}
+                  </p>
                   <p className="mt-0.5 text-[10px] leading-relaxed text-muted-foreground">
                     {m.desc}
                   </p>
                 </div>
-
-                <span className="shrink-0 text-[11px] font-medium">
-                  {m.price}
-                </span>
               </div>
             </motion.div>
           </div>
