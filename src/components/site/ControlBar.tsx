@@ -30,7 +30,7 @@ export function ControlBar() {
 
         <div className="flex items-center gap-3 rounded-[16px] bg-surface p-2 pl-4">
           <span className="text-[10px] leading-tight text-muted-foreground">
-            340+ mitra di 21 kota
+            830+ mitra di 21 kota
             <br />
             balik modal 4-7 bulan
           </span>

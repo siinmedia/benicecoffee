@@ -52,7 +52,7 @@ export function Testimonials() {
         delay={0.08}
         className="mx-auto mt-5 max-w-md text-center text-[12px] leading-relaxed text-muted-foreground"
       >
-        340+ mitra sudah jalan bareng Benice Coffee. Ini beberapa cerita mereka.
+        830+ mitra sudah jalan bareng Benice Coffee. Ini beberapa cerita mereka.
       </Reveal>
 
       <div className="mt-8 flex justify-center gap-2">

@@ -120,7 +120,7 @@ export function Hero() {
       >
         <div className="hairline grid size-14 place-items-center rounded-full text-center leading-none">
           <span>
-            <span className="block text-[15px] font-medium">340</span>
+            <span className="block text-[15px] font-medium">830</span>
             <span className="block text-[8px] text-muted-foreground">outlet</span>
           </span>
         </div>

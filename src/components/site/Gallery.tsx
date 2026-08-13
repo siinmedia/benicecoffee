@@ -56,7 +56,7 @@ export function Gallery() {
                     className="h-8 w-12 rounded-[8px] object-cover"
                   />
                   <span className="text-[10px] leading-tight">
-                    340+ outlet Benice
+                    830+ outlet Benice
                     <br />
                     tersebar di 21 kota
                   </span>
