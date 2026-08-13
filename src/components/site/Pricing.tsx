@@ -4,7 +4,6 @@ import { Arrow, Pill, Reveal, SectionHeading } from "./ui";
 import { waFor } from "@/lib/links";
 
 const packages = [
-[
   {
     name: "Paket Hemat",
     price: "Rp 3.450.000",
