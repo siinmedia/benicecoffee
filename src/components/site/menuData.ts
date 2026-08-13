@@ -11,7 +11,7 @@ const cdn = "https://cdn.anggeraji.web.id/lp-benicecoffee/menu";
 
 export const menuItems: MenuItem[] = [
   { src: `${cdn}/black-coffee-hot.webp`, name: "Black Coffee Hot", desc: "Kopi hitam panas dengan rasa bold dan hangat", tag: "Best seller", group: "Kopi" },
-  { src: `${cdn}/black-coffee-ice.webp`, name: "Black Coffee Ice", desc: "Kopi hitam dingin dengan karakter kuat", group: "Kopi" },
+  { src: `${cdn}/black-coffe-ice.webp`, name: "Black Coffee Ice", desc: "Kopi hitam dingin dengan karakter kuat", group: "Kopi" },
   { src: `${cdn}/butterscotch--coffee-latte.webp`, name: "Butterscotch Coffee Latte", desc: "Kopi susu dengan butterscotch lembut", tag: "Signature", group: "Kopi" },
   { src: `${cdn}/choco-charamelo.webp`, name: "Choco Caramelo", desc: "Cokelat creamy dengan sentuhan karamel", group: "Non-kopi" },
   { src: `${cdn}/choco-crumb.webp`, name: "Choco Crumb", desc: "Cokelat manis dengan tekstur lebih kaya", group: "Non-kopi" },
