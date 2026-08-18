@@ -37,7 +37,7 @@ export function Newsletter() {
             className="w-full rounded-full bg-surface px-6 py-3 text-center text-[11px] outline-none placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring"
           />
           <Pill type="submit" className="px-6">
-            {sent ? "Terkirim, kami hubungi Anda" : "Kirim proposal"} <Arrow />
+            {sent ? "Terkirim, kami hubungi Anda" : "Hubungi Admin"} <Arrow />
           </Pill>
         </form>
       </Reveal>
