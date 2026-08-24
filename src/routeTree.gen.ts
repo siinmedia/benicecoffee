@@ -10,12 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConsultantRouteImport } from './routes/consultant'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as PaketRouteImport } from './routes/paket'
+import { Route as ProposalRouteImport } from './routes/proposal'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsultantRoute = ConsultantRouteImport.update({
+  id: '/consultant',
+  path: '/consultant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuRoute = MenuRouteImport.update({
@@ -28,35 +35,48 @@ const PaketRoute = PaketRouteImport.update({
   path: '/paket',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProposalRoute = ProposalRouteImport.update({
+  id: '/proposal',
+  path: '/proposal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/paket': typeof PaketRoute
+  '/proposal': typeof ProposalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/paket': typeof PaketRoute
+  '/proposal': typeof ProposalRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/paket': typeof PaketRoute
+  '/proposal': typeof ProposalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu' | '/paket'
+  fullPaths: '/' | '/consultant' | '/menu' | '/paket' | '/proposal'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu' | '/paket'
-  id: '__root__' | '/' | '/menu' | '/paket'
+  to: '/' | '/consultant' | '/menu' | '/paket' | '/proposal'
+  id: '__root__' | '/' | '/consultant' | '/menu' | '/paket' | '/proposal'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConsultantRoute: typeof ConsultantRoute
   MenuRoute: typeof MenuRoute
   PaketRoute: typeof PaketRoute
+  ProposalRoute: typeof ProposalRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consultant': {
+      id: '/consultant'
+      path: '/consultant'
+      fullPath: '/consultant'
+      preLoaderRoute: typeof ConsultantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu': {
@@ -82,13 +109,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaketRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/proposal': {
+      id: '/proposal'
+      path: '/proposal'
+      fullPath: '/proposal'
+      preLoaderRoute: typeof ProposalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConsultantRoute: ConsultantRoute,
   MenuRoute: MenuRoute,
   PaketRoute: PaketRoute,
+  ProposalRoute: ProposalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -133,8 +133,12 @@ export function JoinSteps() {
         </ol>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Pill href={WHATSAPP} className="px-5">
-            Chat konsultan <Arrow />
+          <Pill href="/consultant" className="px-5">
+            Chat Konsultan <Arrow />
+          </Pill>
+
+          <Pill href="/proposal" variant="outline">
+            Minta Proposal <Arrow className="rotate-90" />
           </Pill>
 
           <Pill href="/paket" variant="outline">
