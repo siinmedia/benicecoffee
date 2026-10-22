@@ -111,7 +111,7 @@ export function Pricing() {
         delay={0.08}
         className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
       >
-        Semua paket sudah termasuk booth, peralatan, bahan baku awal, resep, dan pelatihan. Tanpa
+        Semua paket usaha kopi sudah termasuk booth, peralatan, bahan baku awal, resep, dan pelatihan. Tanpa
         royalti bulanan.
       </Reveal>
 

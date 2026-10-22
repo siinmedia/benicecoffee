@@ -16,7 +16,7 @@ import { Footer } from "@/components/site/Footer";
 
 const title = "Benice Coffee — Paket Usaha Kopi Mulai Rp 4,9 Juta";
 const description =
-  "Buka usaha kopi bersama Benice Coffee. Lima paket usaha lengkap dengan booth, peralatan, bahan baku, resep, dan pelatihan. Tanpa royalti bulanan.";
+  "Paket usaha kopi Benice Coffee mulai Rp 4,9 juta: booth, peralatan, bahan baku, resep, dan pelatihan. Tanpa royalti bulanan.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

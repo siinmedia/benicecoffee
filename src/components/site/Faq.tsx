@@ -50,7 +50,7 @@ export function Faq() {
         delay={0.08}
         className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
       >
-        Masih ragu? Ini jawaban atas hal yang paling sering ditanyakan calon mitra.
+        Masih ragu? Ini jawaban atas hal yang paling sering ditanyakan calon mitra paket usaha kopi Benice Coffee.
       </Reveal>
       <Reveal delay={0.1} className="mx-auto mt-8 max-w-2xl">
         <Accordion type="single" collapsible>

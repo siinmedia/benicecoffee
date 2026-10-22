@@ -70,7 +70,7 @@ export function Hero() {
         className="display absolute top-[8%] left-1/2 w-full -translate-x-1/2 px-6 text-center text-[clamp(1.9rem,6vw,5rem)] text-card"
       >
         <span className="block">
-          Buka Usaha <em className="font-normal italic">Kopi.</em>
+          Paket Usaha <em className="font-normal italic">Kopi.</em>
         </span>
         <span className="block">
           <em className="font-normal italic">Mulai Hari</em> Ini
