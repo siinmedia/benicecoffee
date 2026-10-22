@@ -19,7 +19,7 @@ export function Menu() {
 
       <Reveal
         delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[12px] leading-relaxed text-muted-foreground"
+        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
       >
         20+ varian racikan Benice Coffee dengan resep terstandar, harga
         terjangkau, dan margin sehat untuk mitra.
@@ -104,11 +104,11 @@ export function Menu() {
 
               <div className="mt-3 flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="truncate text-[12px]">{m.name}</p>
-                  <p className="mt-0.5 text-[10px] leading-relaxed text-muted-foreground">
+                  <p className="truncate text-[13px]">{m.name}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                     {m.group}
                   </p>
-                  <p className="mt-0.5 text-[10px] leading-relaxed text-muted-foreground">
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                     {m.desc}
                   </p>
                 </div>

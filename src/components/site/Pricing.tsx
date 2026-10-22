@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
-import { Arrow, Pill, Reveal, SectionHeading } from "./ui";
-import { waFor } from "@/lib/links";
+import { Pill, Reveal, SectionHeading } from "./ui";
+import { ContactButtons } from "./ContactButtons";
 
 const packages = [
   {
@@ -109,7 +109,7 @@ export function Pricing() {
       />
       <Reveal
         delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[12px] leading-relaxed text-muted-foreground"
+        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
       >
         Semua paket sudah termasuk booth, peralatan, bahan baku awal, resep, dan pelatihan. Tanpa
         royalti bulanan.
@@ -126,7 +126,7 @@ export function Pricing() {
               }`}
             >
               {p.image ? (
-                <div className="aspect-square overflow-hidden bg-surface">
+                <div className="aspect-[16/10] overflow-hidden bg-surface">
                   <img
                     src={p.image}
                     alt={`Tampilan ${p.name} Be Nice Coffee`}
@@ -141,7 +141,7 @@ export function Pricing() {
                   <div>
                     <p className="text-[13px] font-medium tracking-tight">{p.name}</p>
                     <p
-                      className={`mt-0.5 text-[10px] ${p.featured ? "opacity-80" : "text-muted-foreground"}`}
+                      className={`mt-0.5 text-xs ${p.featured ? "opacity-80" : "text-muted-foreground"}`}
                     >
                       {p.note}
                     </p>
@@ -155,14 +155,14 @@ export function Pricing() {
 
                 <p className="display mt-5 text-[clamp(1.5rem,3vw,2rem)]">{p.price}</p>
                 <p
-                  className={`mt-2 text-[11px] leading-relaxed ${p.featured ? "opacity-85" : "text-muted-foreground"}`}
+                  className={`mt-2 text-[13px] leading-relaxed ${p.featured ? "opacity-85" : "text-muted-foreground"}`}
                 >
                   {p.desc}
                 </p>
 
                 <ul className="mt-4 flex flex-1 flex-col gap-1.5">
                   {p.items.map((it) => (
-                    <li key={it} className="flex items-center gap-1.5 text-[10px] leading-tight">
+                    <li key={it} className="flex items-center gap-1.5 text-xs leading-tight">
                       <span
                         className={`grid size-3.5 shrink-0 place-items-center rounded-full ${
                           p.featured ? "bg-accent text-accent-foreground" : "bg-surface"
@@ -175,13 +175,9 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <Pill
-                  href={waFor(p.name)}
-                  variant={p.featured ? "accent" : "primary"}
-                  className="mt-5 w-fit px-5"
-                >
-                  Ambil paket ini <Arrow />
-                </Pill>
+                <div className="mt-5">
+                  <ContactButtons paket={p.name} compact onDark={p.featured ?? false} label="Ambil paket ini" />
+                </div>
               </div>
             </motion.article>
           </Reveal>

@@ -1,10 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
+import { canonicalLink, faqSchema, jsonLdScript, localBusinessSchema, socialMeta, websiteSchema } from "@/lib/seo";
 import { Hero } from "@/components/site/Hero";
 import { ControlBar } from "@/components/site/ControlBar";
 import { Menu } from "@/components/site/Menu";
 import { Gallery } from "@/components/site/Gallery";
 import { Pricing } from "@/components/site/Pricing";
+import { ProfitCalculator } from "@/components/site/ProfitCalculator";
+import { StatsStrip } from "@/components/site/StatsStrip";
+import { Faq, FAQS } from "@/components/site/Faq";
 import { Testimonials } from "@/components/site/Testimonials";
 import { JoinSteps } from "@/components/site/JoinSteps";
 import { Newsletter } from "@/components/site/Newsletter";
@@ -16,14 +20,9 @@ const description =
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+    meta: socialMeta({ title, description, path: "/" }),
+    links: [canonicalLink("/")],
+    scripts: [jsonLdScript(localBusinessSchema()), jsonLdScript(websiteSchema()), jsonLdScript(faqSchema(FAQS))],
   }),
   component: Index,
 });
@@ -34,10 +33,13 @@ function Index() {
       <Navbar />
       <Hero />
       <ControlBar />
+      <StatsStrip />
       <Menu />
       <Gallery />
       <Pricing />
+      <ProfitCalculator />
       <Testimonials />
+      <Faq />
       <JoinSteps />
       <Newsletter />
       <Footer />

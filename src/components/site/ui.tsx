@@ -39,7 +39,7 @@ export function Pill({
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.25 }}
       className={cn(
-        "inline-flex h-9 cursor-pointer items-center gap-2 rounded-full px-4 text-[11px] tracking-tight whitespace-nowrap transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:h-8",
+        "inline-flex h-9 cursor-pointer items-center gap-2 rounded-full px-4 text-xs tracking-tight whitespace-nowrap transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none sm:h-8",
         variant === "primary" && "bg-primary text-primary-foreground",
         variant === "secondary" && "bg-secondary text-secondary-foreground",
         variant === "accent" && "bg-accent text-accent-foreground",

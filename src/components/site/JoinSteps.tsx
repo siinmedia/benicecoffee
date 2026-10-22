@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import owner from "@/assets/gallery-owner.jpg";
 import outlet from "@/assets/gallery-outlet.jpg";
 import { Arrow, CircleButton, Pill, Reveal } from "./ui";
-import { WHATSAPP } from "@/lib/links";
 
 const steps = [
   {
@@ -41,14 +40,12 @@ export function JoinSteps() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
         <Reveal className="relative w-full sm:w-[58%]">
           <div className="overflow-hidden rounded-[16px]">
-            <motion.video
-              src="https://v19.tiktokcdn-us.com/0054daf406a401ac2e57c85da530a59c/6a7d9c25/video/tos/alisg/tos-alisg-pve-0037/oUfrIEpxQf0vhJv73EDcED7TAQFBDUA0eDDSZE/?a=1233&bti=OUBzOTg7QGo6OjZAL3AjLTAzYCMxNDNg&&bt=1113&ft=nF.Th0sq1lgvjSDXYSxROLVUM6~OUE8RpsnzXtG&mime_type=video_mp4&rc=NDVnOjg6OzQ1ZDQ2OjVlOkBpM3FmdXk5cnduPDMzODgzNUAyNTUxY2E2NTUxNGBhMjE2YSM1NHNsMmQ0aHFhLS1kLzZzcw%3D%3D&vvpl=1&l=202608130426390F1A76F95468CA0A7355&btag=e00090000"
-              poster={owner}
-              controls
-              playsInline
-              muted
-              loop
-              preload="metadata"
+            <motion.img
+              src={owner}
+              alt="Mitra Benice Coffee di depan booth usahanya"
+              loading="lazy"
+              width={900}
+              height={760}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.5 }}
               className="h-72 w-full object-cover"
@@ -123,8 +120,8 @@ export function JoinSteps() {
               </span>
 
               <div className="min-w-0">
-                <p className="text-[12px]">{s.t}</p>
-                <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+                <p className="text-[13px]">{s.t}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
                   {s.d}
                 </p>
               </div>
@@ -135,10 +132,6 @@ export function JoinSteps() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Pill href="/consultant" className="px-5">
             Chat Konsultan <Arrow />
-          </Pill>
-
-          <Pill href="/proposal" variant="outline">
-            Minta Proposal <Arrow className="rotate-90" />
           </Pill>
 
           <Pill href="/paket" variant="outline">

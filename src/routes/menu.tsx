@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalLink, jsonLdScript, localBusinessSchema, socialMeta } from "@/lib/seo";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Reveal, Pill, Arrow } from "@/components/site/ui";
 import { menuItems } from "@/components/site/menuData";
-import { WHATSAPP } from "@/lib/links";
 
 const title = "Menu Lengkap Benice Coffee — Kopi & Non-Kopi Mulai Rp 8.000";
 const description =
@@ -11,13 +11,20 @@ const description =
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+    meta: socialMeta({ title, description, path: "/menu", image: "/og/menu.jpg" }),
+    links: [canonicalLink("/menu")],
+    scripts: [
+      jsonLdScript(localBusinessSchema()),
+      jsonLdScript({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Menu Benice Coffee",
+        itemListElement: menuItems.map((m, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: m.name,
+        })),
+      }),
     ],
   }),
   component: MenuPage,
@@ -33,11 +40,11 @@ function MenuPage() {
           <h1 className="display text-[clamp(2.25rem,6vw,4rem)]">
             Menu <em className="italic">Lengkap</em>
           </h1>
-          <p className="mx-auto mt-5 max-w-md text-[12px] leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-md text-[13px] leading-relaxed text-muted-foreground">
             Semua resep sudah terstandar dan diajarkan saat training mitra.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Pill href={WHATSAPP} className="px-5">
+            <Pill href="/consultant" className="px-5">
               Konsultasi menu <Arrow />
             </Pill>
             <Link to="/">
@@ -67,12 +74,12 @@ function MenuPage() {
                       />
                       <div className="mt-3 flex items-start justify-between gap-2">
                         <div className="min-w-0">
-                          <p className="truncate text-[12px]">{m.name}</p>
-                          <p className="mt-0.5 text-[10px] leading-relaxed text-muted-foreground">
+                          <p className="truncate text-[13px]">{m.name}</p>
+                          <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                             {m.desc}
                           </p>
                         </div>
-                        <span className="shrink-0 text-[11px] font-medium">{m.price}</span>
+                        <span className="shrink-0 text-xs font-medium">{m.price}</span>
                       </div>
                     </div>
                   </Reveal>

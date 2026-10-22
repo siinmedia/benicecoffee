@@ -2,7 +2,6 @@ import { Coffee } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
 import { Pill, CircleButton } from "./ui";
-import { WHATSAPP } from "@/lib/links";
 
 export function Navbar() {
   return (
@@ -20,10 +19,10 @@ export function Navbar() {
             ))}
           </span>
         </span>
-        <Pill href="#gabung" className="hidden sm:inline-flex">
+        <Pill href="/#gabung" className="hidden sm:inline-flex">
           Gabung Mitra
         </Pill>
-        <Pill href="#paket" variant="outline" className="sm:hidden">
+        <Pill href="/paket" variant="outline" className="sm:hidden">
           Paket
         </Pill>
       </div>
@@ -43,7 +42,7 @@ export function Navbar() {
         <CircleButton label="Lihat menu" href="/menu">
           <Coffee className="size-3.5" strokeWidth={1.5} />
         </CircleButton>
-        <Pill href={WHATSAPP} variant="outline">
+        <Pill href="/consultant" variant="outline">
           Hubungi kami
         </Pill>
       </div>

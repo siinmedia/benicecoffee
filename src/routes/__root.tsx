@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { StickyCta } from "@/components/site/StickyCta";
 
 function NotFoundComponent() {
   return (
@@ -77,14 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Benice Coffee — Paket Usaha Kopi Tanpa Royalti" },
+      {
+        name: "description",
+        content:
+          "Buka usaha kopi bersama Benice Coffee. Booth, peralatan, bahan baku, resep, dan pelatihan termasuk. Tanpa royalti bulanan.",
+      },
+      { name: "theme-color", content: "#0c0a09" },
+      { property: "og:site_name", content: "Benice Coffee" },
+      { property: "og:locale", content: "id_ID" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -108,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <HeadContent />
       </head>
@@ -127,6 +131,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <StickyCta />
     </QueryClientProvider>
   );
 }

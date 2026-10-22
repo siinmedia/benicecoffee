@@ -4,9 +4,9 @@ import m1 from "@/assets/mitra-1.jpg";
 import m2 from "@/assets/mitra-2.jpg";
 import m3 from "@/assets/mitra-3.jpg";
 import m4 from "@/assets/mitra-4.jpg";
-import { Arrow, CircleButton, Pill, Reveal, SectionHeading } from "./ui";
+import { Arrow, CircleButton, Reveal, SectionHeading } from "./ui";
+import { ContactButtons } from "./ContactButtons";
 import { useSlider } from "./useSlider";
-import { WHATSAPP } from "@/lib/links";
 
 const testimonials = [
   {
@@ -50,7 +50,7 @@ export function Testimonials() {
       />
       <Reveal
         delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[12px] leading-relaxed text-muted-foreground"
+        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
       >
         830+ mitra sudah jalan bareng Benice Coffee. Ini beberapa cerita mereka.
       </Reveal>
@@ -97,8 +97,8 @@ export function Testimonials() {
                 className="size-10 shrink-0 rounded-full object-cover"
               />
               <div className="min-w-0">
-                <p className="truncate text-[12px] font-medium">{t.name}</p>
-                <p className="truncate text-[10px] text-muted-foreground">{t.role}</p>
+                <p className="truncate text-[13px] font-medium">{t.name}</p>
+                <p className="truncate text-[11px] text-muted-foreground">{t.role}</p>
               </div>
             </div>
           </motion.article>
@@ -106,9 +106,7 @@ export function Testimonials() {
       </div>
 
       <Reveal delay={0.1} className="mt-10 flex justify-center">
-        <Pill href={WHATSAPP} className="px-6">
-          Saya mau jadi mitra <Arrow />
-        </Pill>
+        <ContactButtons />
       </Reveal>
     </section>
   );

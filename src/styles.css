@@ -172,3 +172,10 @@
   backdrop-filter: blur(14px);
   box-shadow: 0 12px 40px -18px color-mix(in oklab, var(--foreground) 25%, transparent);
 }
+
+/* Ruang untuk sticky mobile CTA bar (render di __root, mobile only). */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 64px;
+  }
+}

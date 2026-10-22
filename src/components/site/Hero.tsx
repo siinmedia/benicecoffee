@@ -4,7 +4,6 @@ import heroImg from "@/assets/benice-hero.jpg";
 import outlet from "@/assets/gallery-outlet.jpg";
 import barista from "@/assets/gallery-barista.jpg";
 import { Arrow, CircleButton, Pill } from "./ui";
-import { WHATSAPP } from "@/lib/links";
 
 const tags = [
   { label: "Modal kecil", top: "22%", left: "4%" },
@@ -62,23 +61,21 @@ export function Hero() {
         animate={{ scale: 1 }}
         transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-foreground/25 via-transparent to-foreground/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/15 to-foreground/40" />
 
-      {/*
-<motion.h1
-  initial={{ opacity: 0, y: 18 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-  className="display absolute top-[8%] left-1/2 w-full -translate-x-1/2 px-6 text-center text-[clamp(1.9rem,6vw,5rem)] text-card"
->
-  <span className="block">
-    Buka Usaha <em className="font-normal italic">Kopi.</em>
-  </span>
-  <span className="block">
-    <em className="font-normal italic">Mulai Hari</em> Ini
-  </span>
-</motion.h1>
-*/}
+      <motion.h1
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        className="display absolute top-[8%] left-1/2 w-full -translate-x-1/2 px-6 text-center text-[clamp(1.9rem,6vw,5rem)] text-card"
+      >
+        <span className="block">
+          Buka Usaha <em className="font-normal italic">Kopi.</em>
+        </span>
+        <span className="block">
+          <em className="font-normal italic">Mulai Hari</em> Ini
+        </span>
+      </motion.h1>
 
       {tags.map((t, i) => (
         <FloatingTag key={t.label} {...t} index={i} />
@@ -143,7 +140,7 @@ export function Hero() {
           <br />
           Rp 4,9jt
         </div>
-        <Pill href={WHATSAPP}>Gabung mitra</Pill>
+        <Pill href="/consultant">Gabung mitra</Pill>
       </motion.div>
 
       <motion.div

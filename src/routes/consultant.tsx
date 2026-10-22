@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalLink, jsonLdScript, localBusinessSchema, socialMeta } from "@/lib/seo";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Arrow, Pill, Reveal } from "@/components/site/ui";
-import { WHATSAPP } from "@/lib/links";
+import { getRotatingContact, openRotatingWa } from "@/lib/links";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,14 +17,9 @@ const description =
 
 export const Route = createFileRoute("/consultant")({
   head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+    meta: socialMeta({ title, description, path: "/consultant" }),
+    links: [canonicalLink("/consultant")],
+    scripts: [jsonLdScript(localBusinessSchema())],
   }),
   component: ConsultantPage,
 });
@@ -51,8 +47,9 @@ function ConsultantPage() {
     e.preventDefault();
     
     // Create WhatsApp message
-    const message = `Halo, saya ${formData.name}\n\nNomor: ${formData.phone}\nEmail: ${formData.email}\n\nPesan: ${formData.message}`;
-    const whatsappUrl = `https://wa.me/62${WHATSAPP.replace(/\D/g, "").replace(/^0/, "")}?text=${encodeURIComponent(message)}`;
+    const contact = getRotatingContact();
+    const message = `Halo Benice Coffee, saya ${formData.name}\n\nNomor: ${formData.phone}\nEmail: ${formData.email}\n\nPesan: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/${contact.number}?text=${encodeURIComponent(message)}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
@@ -74,7 +71,7 @@ function ConsultantPage() {
           <h1 className="display text-center text-[clamp(2.25rem,6vw,4rem)]">
             Chat dengan <em className="italic">Konsultan</em>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-center text-[12px] leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-2xl text-center text-[13px] leading-relaxed text-muted-foreground">
             Hubungi konsultan kami untuk mendapatkan informasi lengkap tentang peluang bisnis Benice Coffee, 
             paket usaha yang sesuai dengan kebutuhan Anda, dan strategi sukses untuk memulai.
           </p>
@@ -212,15 +209,14 @@ function ConsultantPage() {
                 <p className="text-sm text-muted-foreground">
                   Konsultan kami siap membantu melalui WhatsApp. Biasanya kami merespon dalam 1-2 jam pada jam kerja.
                 </p>
-                <div className="mt-4 flex gap-2">
-                  <a
-                    href={WHATSAPP}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700"
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={() => openRotatingWa()}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700"
                   >
-                    <span>💬</span> Chat WhatsApp
-                  </a>
+                    <span>Chat WhatsApp</span>
+                  </button>
                 </div>
               </CardContent>
             </Card>
