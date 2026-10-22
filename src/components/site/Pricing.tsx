@@ -131,7 +131,7 @@ export function Pricing() {
                     src={p.image}
                     alt={`Tampilan ${p.name} Be Nice Coffee`}
                     loading="lazy"
-                    className="size-full object-contain transition-transform duration-500 hover:scale-105"
+                    className="size-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               ) : null}
