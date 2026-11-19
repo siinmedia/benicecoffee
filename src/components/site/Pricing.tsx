@@ -103,7 +103,7 @@ const packages = [
 
 export function Pricing() {
   return (
-    <section id="paket" className="section-pricing py-16 sm:py-24">
+    <section id="paket" className="section-pricing py-12 sm:py-24">
       <div className="grid gap-8 border-b border-foreground/15 pb-10 sm:grid-cols-[1fr_0.8fr] sm:items-end sm:gap-16">
       <div>
       <p className="section-kicker">Paket usaha · Benice Coffee</p>
@@ -131,7 +131,7 @@ export function Pricing() {
       </div>
       </div>
 
-      <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {packages.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.06}>
             <motion.article

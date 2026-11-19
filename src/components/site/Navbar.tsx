@@ -17,7 +17,7 @@ export function Navbar() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-foreground/15 bg-background/95 px-4 py-2.5 backdrop-blur-md sm:px-8 lg:px-12"
+      className="sticky top-0 z-50 grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b border-foreground/15 bg-background/95 px-4 py-2 backdrop-blur-md sm:px-8 lg:px-12"
     >
       <Link to="/" className="flex min-h-11 items-center gap-2.5">
         <img
@@ -61,7 +61,7 @@ export function Navbar() {
         </Pill>
       </div>
       <nav
-        className="col-span-3 flex gap-1 overflow-x-auto border-t border-foreground/10 pt-2 lg:hidden"
+        className="col-span-2 -mx-1 flex gap-1 overflow-x-auto border-t border-foreground/10 px-1 pt-1.5 lg:hidden"
         aria-label="Navigasi mobile"
       >
         {links.map(([label, href]) => (

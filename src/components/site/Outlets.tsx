@@ -46,7 +46,7 @@ export function Outlets({ preview = false }: { preview?: boolean }) {
   const total = visibleRegions.reduce((sum, region) => sum + region.outlets.length, 0);
 
   return <section id="outlet" className="section-outlets py-12 sm:py-20">
-    <div className="mx-auto grid w-full max-w-5xl gap-10 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 sm:px-10">
+    <div className="mx-auto grid w-full max-w-5xl gap-8 px-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 sm:px-10">
       <div>
         <p className="section-kicker">Jaringan Benice</p>
         <SectionHeading className="mt-3" lines={[<>Temukan <em className="italic">Outlet</em> Kami</>]} />

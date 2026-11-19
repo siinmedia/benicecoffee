@@ -4,8 +4,8 @@ import { PAKET_USAHA } from "@/lib/seo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-foreground/15 pt-12 pb-14 text-xs sm:pt-16 sm:pb-16">
-      <div className="grid gap-10 sm:grid-cols-[1.5fr_1fr_1fr] sm:gap-8">
+    <footer className="border-t border-foreground/15 pt-10 pb-10 text-xs sm:pt-16 sm:pb-16">
+      <div className="grid gap-8 sm:grid-cols-[1.5fr_1fr_1fr] sm:gap-8">
         <div>
           <Link to="/" className="flex items-center gap-2">
             <img
