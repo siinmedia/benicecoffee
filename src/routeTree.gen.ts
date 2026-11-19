@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ConsultantRouteImport } from './routes/consultant'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ModalUsahaKopi5JutaRouteImport } from './routes/modal-usaha-kopi-5-juta'
 import { Route as OutletRouteImport } from './routes/outlet'
@@ -18,15 +18,20 @@ import { Route as PaketRouteImport } from './routes/paket'
 import { Route as PaketUsahaKopiTanpaRoyaltiRouteImport } from './routes/paket-usaha-kopi-tanpa-royalti'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UsahaKopiBoothRouteImport } from './routes/usaha-kopi-booth'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogKesalahanMemulaiBisnisKopiRouteImport } from './routes/blog.kesalahan-memulai-bisnis-kopi'
+import { Route as BlogModalUsahaKopiRouteImport } from './routes/blog.modal-usaha-kopi'
+import { Route as BlogPaketUsahaKopiBeniceCoffeeRouteImport } from './routes/blog.paket-usaha-kopi-benice-coffee'
+import { Route as BlogTipsMemulaiUsahaKopiRouteImport } from './routes/blog.tips-memulai-usaha-kopi'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ConsultantRoute = ConsultantRouteImport.update({
-  id: '/consultant',
-  path: '/consultant',
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuRoute = MenuRouteImport.update({
@@ -65,10 +70,38 @@ const UsahaKopiBoothRoute = UsahaKopiBoothRouteImport.update({
   path: '/usaha-kopi-booth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogKesalahanMemulaiBisnisKopiRoute =
+  BlogKesalahanMemulaiBisnisKopiRouteImport.update({
+    id: '/kesalahan-memulai-bisnis-kopi',
+    path: '/kesalahan-memulai-bisnis-kopi',
+    getParentRoute: () => BlogRoute,
+  } as any)
+const BlogModalUsahaKopiRoute = BlogModalUsahaKopiRouteImport.update({
+  id: '/modal-usaha-kopi',
+  path: '/modal-usaha-kopi',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogPaketUsahaKopiBeniceCoffeeRoute =
+  BlogPaketUsahaKopiBeniceCoffeeRouteImport.update({
+    id: '/paket-usaha-kopi-benice-coffee',
+    path: '/paket-usaha-kopi-benice-coffee',
+    getParentRoute: () => BlogRoute,
+  } as any)
+const BlogTipsMemulaiUsahaKopiRoute =
+  BlogTipsMemulaiUsahaKopiRouteImport.update({
+    id: '/tips-memulai-usaha-kopi',
+    path: '/tips-memulai-usaha-kopi',
+    getParentRoute: () => BlogRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/consultant': typeof ConsultantRoute
+  '/blog': typeof BlogRouteWithChildren
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
   '/outlet': typeof OutletRoute
@@ -76,10 +109,14 @@ export interface FileRoutesByFullPath {
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usaha-kopi-booth': typeof UsahaKopiBoothRoute
+  '/blog/kesalahan-memulai-bisnis-kopi': typeof BlogKesalahanMemulaiBisnisKopiRoute
+  '/blog/modal-usaha-kopi': typeof BlogModalUsahaKopiRoute
+  '/blog/paket-usaha-kopi-benice-coffee': typeof BlogPaketUsahaKopiBeniceCoffeeRoute
+  '/blog/tips-memulai-usaha-kopi': typeof BlogTipsMemulaiUsahaKopiRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
   '/outlet': typeof OutletRoute
@@ -87,11 +124,16 @@ export interface FileRoutesByTo {
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usaha-kopi-booth': typeof UsahaKopiBoothRoute
+  '/blog/kesalahan-memulai-bisnis-kopi': typeof BlogKesalahanMemulaiBisnisKopiRoute
+  '/blog/modal-usaha-kopi': typeof BlogModalUsahaKopiRoute
+  '/blog/paket-usaha-kopi-benice-coffee': typeof BlogPaketUsahaKopiBeniceCoffeeRoute
+  '/blog/tips-memulai-usaha-kopi': typeof BlogTipsMemulaiUsahaKopiRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/consultant': typeof ConsultantRoute
+  '/blog': typeof BlogRouteWithChildren
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
   '/outlet': typeof OutletRoute
@@ -99,12 +141,17 @@ export interface FileRoutesById {
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usaha-kopi-booth': typeof UsahaKopiBoothRoute
+  '/blog/kesalahan-memulai-bisnis-kopi': typeof BlogKesalahanMemulaiBisnisKopiRoute
+  '/blog/modal-usaha-kopi': typeof BlogModalUsahaKopiRoute
+  '/blog/paket-usaha-kopi-benice-coffee': typeof BlogPaketUsahaKopiBeniceCoffeeRoute
+  '/blog/tips-memulai-usaha-kopi': typeof BlogTipsMemulaiUsahaKopiRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/consultant'
+    | '/blog'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
     | '/outlet'
@@ -112,10 +159,14 @@ export interface FileRouteTypes {
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
     | '/usaha-kopi-booth'
+    | '/blog/kesalahan-memulai-bisnis-kopi'
+    | '/blog/modal-usaha-kopi'
+    | '/blog/paket-usaha-kopi-benice-coffee'
+    | '/blog/tips-memulai-usaha-kopi'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/consultant'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
     | '/outlet'
@@ -123,10 +174,15 @@ export interface FileRouteTypes {
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
     | '/usaha-kopi-booth'
+    | '/blog/kesalahan-memulai-bisnis-kopi'
+    | '/blog/modal-usaha-kopi'
+    | '/blog/paket-usaha-kopi-benice-coffee'
+    | '/blog/tips-memulai-usaha-kopi'
+    | '/blog'
   id:
     | '__root__'
     | '/'
-    | '/consultant'
+    | '/blog'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
     | '/outlet'
@@ -134,11 +190,16 @@ export interface FileRouteTypes {
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
     | '/usaha-kopi-booth'
+    | '/blog/kesalahan-memulai-bisnis-kopi'
+    | '/blog/modal-usaha-kopi'
+    | '/blog/paket-usaha-kopi-benice-coffee'
+    | '/blog/tips-memulai-usaha-kopi'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ConsultantRoute: typeof ConsultantRoute
+  BlogRoute: typeof BlogRouteWithChildren
   MenuRoute: typeof MenuRoute
   ModalUsahaKopi5JutaRoute: typeof ModalUsahaKopi5JutaRoute
   OutletRoute: typeof OutletRoute
@@ -157,11 +218,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/consultant': {
-      id: '/consultant'
-      path: '/consultant'
-      fullPath: '/consultant'
-      preLoaderRoute: typeof ConsultantRouteImport
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu': {
@@ -213,12 +274,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsahaKopiBoothRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/kesalahan-memulai-bisnis-kopi': {
+      id: '/blog/kesalahan-memulai-bisnis-kopi'
+      path: '/kesalahan-memulai-bisnis-kopi'
+      fullPath: '/blog/kesalahan-memulai-bisnis-kopi'
+      preLoaderRoute: typeof BlogKesalahanMemulaiBisnisKopiRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/modal-usaha-kopi': {
+      id: '/blog/modal-usaha-kopi'
+      path: '/modal-usaha-kopi'
+      fullPath: '/blog/modal-usaha-kopi'
+      preLoaderRoute: typeof BlogModalUsahaKopiRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/paket-usaha-kopi-benice-coffee': {
+      id: '/blog/paket-usaha-kopi-benice-coffee'
+      path: '/paket-usaha-kopi-benice-coffee'
+      fullPath: '/blog/paket-usaha-kopi-benice-coffee'
+      preLoaderRoute: typeof BlogPaketUsahaKopiBeniceCoffeeRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/tips-memulai-usaha-kopi': {
+      id: '/blog/tips-memulai-usaha-kopi'
+      path: '/tips-memulai-usaha-kopi'
+      fullPath: '/blog/tips-memulai-usaha-kopi'
+      preLoaderRoute: typeof BlogTipsMemulaiUsahaKopiRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
+interface BlogRouteChildren {
+  BlogKesalahanMemulaiBisnisKopiRoute: typeof BlogKesalahanMemulaiBisnisKopiRoute
+  BlogModalUsahaKopiRoute: typeof BlogModalUsahaKopiRoute
+  BlogPaketUsahaKopiBeniceCoffeeRoute: typeof BlogPaketUsahaKopiBeniceCoffeeRoute
+  BlogTipsMemulaiUsahaKopiRoute: typeof BlogTipsMemulaiUsahaKopiRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogKesalahanMemulaiBisnisKopiRoute: BlogKesalahanMemulaiBisnisKopiRoute,
+  BlogModalUsahaKopiRoute: BlogModalUsahaKopiRoute,
+  BlogPaketUsahaKopiBeniceCoffeeRoute: BlogPaketUsahaKopiBeniceCoffeeRoute,
+  BlogTipsMemulaiUsahaKopiRoute: BlogTipsMemulaiUsahaKopiRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ConsultantRoute: ConsultantRoute,
+  BlogRoute: BlogRouteWithChildren,
   MenuRoute: MenuRoute,
   ModalUsahaKopi5JutaRoute: ModalUsahaKopi5JutaRoute,
   OutletRoute: OutletRoute,

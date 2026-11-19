@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/seo";
 
-const PATHS = ["/", "/menu", "/paket", "/consultant", "/paket-usaha-kopi-tanpa-royalti", "/modal-usaha-kopi-5-juta", "/usaha-kopi-booth"];
+const PATHS = ["/", "/menu", "/paket", "/outlet", "/blog", "/blog/paket-usaha-kopi-benice-coffee", "/blog/tips-memulai-usaha-kopi", "/blog/modal-usaha-kopi", "/blog/kesalahan-memulai-bisnis-kopi", "/paket-usaha-kopi-tanpa-royalti", "/modal-usaha-kopi-5-juta", "/usaha-kopi-booth"];
 
 function sitemapXml() {
   const urls = PATHS.map(

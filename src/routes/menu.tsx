@@ -44,7 +44,7 @@ function MenuPage() {
             Semua resep sudah terstandar dan diajarkan saat training mitra.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Pill href="/consultant" className="px-5">
+            <Pill href="/paket" className="px-5">
               Konsultasi menu <Arrow />
             </Pill>
             <Link to="/">

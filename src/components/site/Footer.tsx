@@ -29,7 +29,7 @@ export function Footer() {
             <li><a href="/paket-usaha-kopi-tanpa-royalti" className="story-link">Tanpa Royalti</a></li>
             <li><a href="/modal-usaha-kopi-5-juta" className="story-link">Modal 5 Juta</a></li>
             <li><a href="/usaha-kopi-booth" className="story-link">Booth Pinggir Jalan</a></li>
-            <li><a href="/consultant" className="story-link">Chat Konsultan</a></li>
+            <li><a href="/paket" className="story-link">Chat Konsultan</a></li>
           </ul>
         </nav>
 
@@ -57,7 +57,7 @@ export function Footer() {
               </button>
             </li>
             <li>
-              <a href="/consultant" className="story-link">
+              <a href="/paket" className="story-link">
                 Konsultasi Gratis
               </a>
             </li>

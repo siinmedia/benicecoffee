@@ -79,7 +79,7 @@ export function JoinSteps() {
         </ol>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <Pill href="/consultant" className="px-5">
+          <Pill href="/paket" className="px-5">
             Chat Konsultan <Arrow />
           </Pill>
 

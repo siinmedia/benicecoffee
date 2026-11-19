@@ -14,13 +14,13 @@ export function StickyCta() {
           <Pill href="/paket" variant="outline" className="h-10 flex-1 justify-center">
             Lihat Paket
           </Pill>
-          <Pill href="/consultant" className="h-10 flex-1 justify-center">
+          <Pill href="/paket" className="h-10 flex-1 justify-center">
             Chat Konsultan
           </Pill>
         </div>
       </div>
       <a
-        href="/consultant"
+        href="/paket"
         aria-label="Chat konsultan Benice Coffee"
         className="fixed right-5 bottom-5 z-50 hidden size-12 place-items-center rounded-full bg-[#22c55e] text-white shadow-lg transition-transform hover:scale-105 md:grid"
       >

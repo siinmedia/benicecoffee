@@ -33,7 +33,7 @@ function PaketPage() {
             Pilih skala usaha sesuai modal dan lokasi Anda. Tanpa royalti bulanan.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Pill href="/consultant" className="px-5">
+            <Pill href="/paket" className="px-5">
               Tanya konsultan <Arrow />
             </Pill>
             <Link to="/">
