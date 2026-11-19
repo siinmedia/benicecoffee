@@ -127,7 +127,7 @@ export function Pricing() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
         <span>Sesuaikan paket dengan lokasi dan target usaha kamu.</span>
-        <span className="font-bold uppercase tracking-[0.14em] text-primary">5 pilihan · tanpa royalti</span>
+        <span className="font-bold uppercase tracking-[0.14em] text-primary">Harga mulai Rp 3,45 juta · tanpa royalti</span>
       </div>
       </div>
 

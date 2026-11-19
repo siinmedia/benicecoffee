@@ -79,9 +79,6 @@ export function JoinSteps() {
         </ol>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <Pill href="/paket" className="px-5">
-            Chat Konsultan <Arrow />
-          </Pill>
 
           <Pill href="/paket" variant="outline">
             Lihat paket <Arrow className="rotate-90" />
