@@ -1,56 +1,35 @@
-import { Search, Phone, Facebook, Instagram, MessageCircle } from "lucide-react";
-import outlet from "@/assets/gallery-outlet.jpg";
-import barista from "@/assets/gallery-barista.jpg";
-import equipment from "@/assets/gallery-equipment.jpg";
-import { Arrow, CircleButton, Reveal } from "./ui";
+import { Reveal } from "./ui";
+
+const items = [
+  "Coffee gula aren",
+  "Booth siap jualan",
+  "Tanpa royalti bulanan",
+  "Resep terstandar",
+  "Pendampingan mitra",
+];
 
 export function ControlBar() {
   return (
-    <Reveal delay={0.1} className="mt-3">
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="flex min-w-0 items-center gap-3 rounded-[16px] bg-surface p-2 pr-4">
-          <img
-            src={equipment}
-            loading="lazy"
-            width={900}
-            height={760}
-            alt="Peralatan kopi paket usaha Benice"
-            className="h-9 w-20 shrink-0 rounded-[10px] object-cover"
-          />
-          <span className="text-[10px] leading-tight text-muted-foreground">
-            Paket usaha lengkap
-            <br />
-            langsung jualan
-          </span>
-          <span className="hairline hidden size-8 shrink-0 place-items-center rounded-full text-[10px] sm:grid">
-            ✳
-          </span>
-        </div>
-
-
-        <div className="flex items-center gap-3 rounded-[16px] bg-surface p-2 pl-4">
-          <span className="text-[10px] leading-tight text-muted-foreground">
-            830+ mitra di 21 kota
-            <br />
-            balik modal 4-7 bulan
-          </span>
-          <div className="hidden gap-1 sm:flex">
-            {[outlet, barista, equipment].map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                loading="lazy"
-                width={900}
-                height={760}
-                alt=""
-                className="h-9 w-12 rounded-[8px] object-cover"
-              />
+    <Reveal
+      delay={0.1}
+      className="overflow-hidden border-y border-primary/30 bg-primary py-3 text-background"
+    >
+      <div className="flex w-max animate-marquee-benice">
+        {[0, 1].map((half) => (
+          <div key={half} className="flex shrink-0 items-center">
+            {items.map((item) => (
+              <span
+                key={`${half}-${item}`}
+                className="whitespace-nowrap px-6 text-[11px] font-bold uppercase tracking-[0.18em]"
+              >
+                {item}
+                <span className="pl-12 text-accent" aria-hidden>
+                  ✦
+                </span>
+              </span>
             ))}
           </div>
-          <CircleButton label="Lihat mitra" variant="outline" className="w-12 rounded-full">
-            <Arrow />
-          </CircleButton>
-        </div>
+        ))}
       </div>
     </Reveal>
   );

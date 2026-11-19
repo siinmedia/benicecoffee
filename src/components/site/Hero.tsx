@@ -1,177 +1,81 @@
+import { ArrowDownRight } from "lucide-react";
 import { motion } from "motion/react";
-import { Play, Store } from "lucide-react";
 import heroImg from "@/assets/benice-hero.jpg";
-import outlet from "@/assets/gallery-outlet.jpg";
-import barista from "@/assets/gallery-barista.jpg";
-import { Arrow, CircleButton, Pill } from "./ui";
-
-const tags = [
-  { label: "Modal kecil", top: "22%", left: "4%" },
-  { label: "Booth siap", top: "34%", left: "26%" },
-  { label: "Tanpa royalti", top: "27%", left: "45%", accent: true },
-  { label: "Resep teruji", top: "38%", left: "65%" },
-  { label: "Didampingi", top: "18%", left: "84%" },
-];
-
-function FloatingTag({
-  label,
-  top,
-  left,
-  accent,
-  index,
-}: {
-  label: string;
-  top: string;
-  left: string;
-  accent?: boolean;
-  index: number;
-}) {
-  return (
-    <motion.div
-      style={{ top, left }}
-      className="absolute hidden flex-col items-center gap-1.5 sm:flex"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: [0, -4, 0] }}
-      transition={{
-        opacity: { duration: 0.6, delay: 0.4 + index * 0.08 },
-        y: { duration: 6 + index, repeat: Infinity, ease: "easeInOut" },
-      }}
-    >
-      <span className="grid size-5 place-items-center rounded-full bg-card/40 backdrop-blur-md">
-        <span className="size-1.5 rounded-full bg-card" />
-      </span>
-      <Pill as="div" variant={accent ? "accent" : "white"} className="h-7 px-3">
-        {label}
-        {accent ? <Arrow /> : null}
-      </Pill>
-    </motion.div>
-  );
-}
+import { Pill } from "./ui";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-[20px]">
+    <header className="relative min-h-[610px] overflow-hidden bg-secondary sm:min-h-[680px]">
       <motion.img
         src={heroImg}
         width={1920}
         height={1088}
         alt="Booth kopi merah Benice Coffee dengan barista meracik kopi saat senja"
-        className="h-[420px] w-full object-cover sm:h-[520px] lg:h-[600px]"
-        initial={{ scale: 1.06 }}
+        className="absolute inset-0 size-full object-cover"
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/15 to-foreground/40" />
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-secondary/10"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-secondary/70 to-transparent"
+        aria-hidden
+      />
 
-      <motion.h1
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="display absolute top-[8%] left-1/2 w-full -translate-x-1/2 px-6 text-center text-[clamp(1.9rem,6vw,5rem)] text-card"
-      >
-        <span className="block">
-          Paket Usaha <em className="font-normal italic">Kopi.</em>
-        </span>
-        <span className="block">
-          <em className="font-normal italic">Mulai Hari</em> Ini
-        </span>
-      </motion.h1>
+      <div className="relative mx-auto flex min-h-[610px] max-w-6xl flex-col justify-between px-6 py-10 sm:min-h-[680px] sm:px-10 sm:py-16">
+        <div className="max-w-3xl">
+          <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em] text-background/90">
+            <span className="inline-block h-px w-10 bg-primary" />
+            Paket usaha kopi Indonesia
+          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="display mt-6 max-w-3xl text-[clamp(3.25rem,9vw,7.5rem)] text-background"
+          >
+            Kopi enak,
+            <br />
+            <em>usaha jalan.</em>
+          </motion.h1>
+          <p className="mt-6 max-w-md text-sm font-medium leading-relaxed tracking-[0.03em] text-background/80 sm:text-base">
+            Booth, peralatan, bahan baku, resep, dan pendampingan untuk kamu yang ingin mulai jualan
+            kopi dengan langkah yang jelas.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Pill
+              href="#paket"
+              variant="primary"
+              className="h-11 px-6 text-xs font-bold uppercase tracking-[0.12em]"
+            >
+              Lihat paket usaha
+            </Pill>
+            <Pill
+              href="#menu"
+              variant="white"
+              className="h-11 px-6 text-xs font-bold uppercase tracking-[0.12em]"
+            >
+              Lihat menu
+            </Pill>
+          </div>
+        </div>
 
-      {tags.map((t, i) => (
-        <FloatingTag key={t.label} {...t} index={i} />
-      ))}
-
-      <div className="absolute bottom-[38%] left-[12%] hidden gap-2 lg:flex">
-        <CircleButton label="Ke menu" variant="white" href="#menu">
-          <Arrow className="rotate-[225deg]" />
-        </CircleButton>
-        <CircleButton label="Ke paket usaha" variant="white" href="#paket">
-          <Arrow className="rotate-45" />
-        </CircleButton>
+        <div className="flex items-end justify-between gap-5 text-background">
+          <p className="max-w-[210px] text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-background/75">
+            Mulai dari paket yang sesuai dengan lokasi dan budget kamu.
+          </p>
+          <a
+            href="#cerita"
+            className="grid size-14 shrink-0 place-items-center rounded-full border border-background/60 transition-colors hover:bg-background hover:text-secondary"
+            aria-label="Lihat cerita Benice Coffee"
+          >
+            <ArrowDownRight className="size-5" strokeWidth={1.4} />
+          </a>
+        </div>
       </div>
-
-      <div className="absolute bottom-[14%] left-1/2 hidden -translate-x-1/2 items-center gap-4 text-[10px] leading-tight text-card md:flex">
-        <span className="text-right">
-          Kopi enak,
-          <br />
-          harga bersahabat
-        </span>
-        <svg viewBox="0 0 64 64" className="size-16 text-card" aria-hidden>
-          <path
-            fill="currentColor"
-            d="M28 0h8v18l13-13 5.7 5.7L41.7 24H64v8H41.7l13 13L49 50.7 36 37.7V64h-8V37.7L15 50.7 9.3 45l13-13H0v-8h22.3l-13-13L15 5.3l13 13V0z"
-          />
-        </svg>
-        <span>
-          usaha jalan,
-          <br />
-          kami dampingi
-        </span>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="glass absolute bottom-4 left-4 hidden items-center gap-3 rounded-[16px] p-2.5 sm:flex"
-      >
-        <div className="hairline grid size-14 place-items-center rounded-full text-center leading-none">
-          <span>
-            <span className="block text-[15px] font-medium">830</span>
-            <span className="block text-[8px] text-muted-foreground">outlet</span>
-          </span>
-        </div>
-        <div className="text-[9px] leading-tight text-muted-foreground">
-          mitra
-          <br />
-          aktif
-        </div>
-        <img
-          src={outlet}
-          loading="lazy"
-          width={900}
-          height={760}
-          alt="Booth Benice Coffee di pinggir jalan"
-          className="h-14 w-20 rounded-[10px] object-cover"
-        />
-        <div className="flex items-center gap-1 text-[9px] leading-tight text-muted-foreground">
-          <Store className="size-3" strokeWidth={1.5} />
-          mulai
-          <br />
-          Rp 4,9jt
-        </div>
-        <Pill href="/consultant">Gabung mitra</Pill>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="glass absolute right-4 bottom-4 hidden w-[220px] rounded-[16px] p-2.5 lg:block"
-      >
-        <div className="mb-2 flex items-center justify-between px-1">
-          <span className="text-[10px] text-muted-foreground">profil usaha</span>
-          <Arrow />
-        </div>
-        <div className="relative overflow-hidden rounded-[10px]">
-          <img
-            src={barista}
-            loading="lazy"
-            width={900}
-            height={760}
-            alt="Barista Benice menakar kopi"
-            className="h-24 w-full object-cover"
-          />
-          <Pill as="div" variant="white" className="absolute inset-x-0 bottom-2 mx-auto h-6 w-fit px-2.5">
-            <Play className="size-2.5" strokeWidth={1.5} /> putar
-          </Pill>
-        </div>
-        <div className="mt-2 flex justify-start">
-          <CircleButton label="Lihat galeri" variant="white" className="size-7" href="#galeri">
-            <Arrow />
-          </CircleButton>
-        </div>
-      </motion.div>
-    </section>
+    </header>
   );
 }

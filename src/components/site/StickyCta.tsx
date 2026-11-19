@@ -7,7 +7,7 @@ export function StickyCta() {
   return (
     <>
       <div
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-border/50 bg-background/90 px-3 pt-2 backdrop-blur-md sm:hidden"
+        className="fixed inset-x-0 bottom-0 z-[60] border-t border-border/50 bg-background px-3 pt-2 shadow-[0_-8px_24px_rgba(33,27,25,0.12)] sm:hidden"
         style={{ paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}
       >
         <div className="flex gap-2">

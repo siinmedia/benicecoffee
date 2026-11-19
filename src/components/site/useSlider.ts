@@ -25,12 +25,12 @@ export function useSlider() {
     };
   }, [update]);
 
-  const scrollByCard = useCallback((dir: 1 | -1) => {
+  const scrollByCard = useCallback((dir: 1 | -1, count = 1) => {
     const el = ref.current;
     if (!el) return;
     const card = el.firstElementChild as HTMLElement | null;
     const step = card ? card.offsetWidth + 16 : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
+    el.scrollBy({ left: dir * step * count, behavior: "smooth" });
   }, []);
 
   return { ref, ...state, scrollByCard };

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ConsultantRouteImport } from './routes/consultant'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ModalUsahaKopi5JutaRouteImport } from './routes/modal-usaha-kopi-5-juta'
+import { Route as OutletRouteImport } from './routes/outlet'
 import { Route as PaketRouteImport } from './routes/paket'
 import { Route as PaketUsahaKopiTanpaRoyaltiRouteImport } from './routes/paket-usaha-kopi-tanpa-royalti'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -36,6 +37,11 @@ const MenuRoute = MenuRouteImport.update({
 const ModalUsahaKopi5JutaRoute = ModalUsahaKopi5JutaRouteImport.update({
   id: '/modal-usaha-kopi-5-juta',
   path: '/modal-usaha-kopi-5-juta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OutletRoute = OutletRouteImport.update({
+  id: '/outlet',
+  path: '/outlet',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaketRoute = PaketRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
+  '/outlet': typeof OutletRoute
   '/paket': typeof PaketRoute
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
+  '/outlet': typeof OutletRoute
   '/paket': typeof PaketRoute
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/consultant': typeof ConsultantRoute
   '/menu': typeof MenuRoute
   '/modal-usaha-kopi-5-juta': typeof ModalUsahaKopi5JutaRoute
+  '/outlet': typeof OutletRoute
   '/paket': typeof PaketRoute
   '/paket-usaha-kopi-tanpa-royalti': typeof PaketUsahaKopiTanpaRoyaltiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/consultant'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
+    | '/outlet'
     | '/paket'
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/consultant'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
+    | '/outlet'
     | '/paket'
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/consultant'
     | '/menu'
     | '/modal-usaha-kopi-5-juta'
+    | '/outlet'
     | '/paket'
     | '/paket-usaha-kopi-tanpa-royalti'
     | '/sitemap.xml'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ConsultantRoute: typeof ConsultantRoute
   MenuRoute: typeof MenuRoute
   ModalUsahaKopi5JutaRoute: typeof ModalUsahaKopi5JutaRoute
+  OutletRoute: typeof OutletRoute
   PaketRoute: typeof PaketRoute
   PaketUsahaKopiTanpaRoyaltiRoute: typeof PaketUsahaKopiTanpaRoyaltiRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/modal-usaha-kopi-5-juta'
       fullPath: '/modal-usaha-kopi-5-juta'
       preLoaderRoute: typeof ModalUsahaKopi5JutaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/outlet': {
+      id: '/outlet'
+      path: '/outlet'
+      fullPath: '/outlet'
+      preLoaderRoute: typeof OutletRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/paket': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConsultantRoute: ConsultantRoute,
   MenuRoute: MenuRoute,
   ModalUsahaKopi5JutaRoute: ModalUsahaKopi5JutaRoute,
+  OutletRoute: OutletRoute,
   PaketRoute: PaketRoute,
   PaketUsahaKopiTanpaRoyaltiRoute: PaketUsahaKopiTanpaRoyaltiRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

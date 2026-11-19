@@ -1,37 +1,44 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
-import m1 from "@/assets/mitra-1.jpg";
-import m2 from "@/assets/mitra-2.jpg";
-import m3 from "@/assets/mitra-3.jpg";
-import m4 from "@/assets/mitra-4.jpg";
 import { Arrow, CircleButton, Reveal, SectionHeading } from "./ui";
 import { ContactButtons } from "./ContactButtons";
 import { useSlider } from "./useSlider";
 
 const testimonials = [
   {
-    img: m1,
     name: "Rifky Ananda",
     role: "Mitra Neon Box Luxury · Bandung",
     quote: "Balik modal 5 bulan. Rata-rata 90 cup per hari sejak bulan kedua.",
   },
   {
-    img: m2,
     name: "Nadia Salsabila",
     role: "Mitra Paket Platinum · Yogyakarta",
     quote: "Resepnya konsisten, pelanggan kampus jadi langganan tiap pagi.",
   },
   {
-    img: m3,
     name: "Bagas Prakoso",
     role: "Mitra Paket Portable · Bekasi",
     quote: "Modal kecil tapi boothnya rapi. Minggu pertama sudah ramai.",
   },
   {
-    img: m4,
     name: "Ratna Wijaya",
     role: "Mitra Neon Box Premium · Surabaya",
     quote: "Sekarang saya pegang tiga outlet. Tim support-nya benar-benar mendampingi.",
+  },
+  {
+    name: "Dimas Setiawan",
+    role: "Mitra Paket Hemat · Depok",
+    quote: "Saya mulai dari teras rumah. SOP dan pendampingannya jelas dari awal.",
+  },
+  {
+    name: "Siti Nurhaliza",
+    role: "Mitra Paket Portable · Malang",
+    quote: "Menunya gampang diterima pelanggan dan bahan bakunya mudah disiapkan.",
+  },
+  {
+    name: "Andi Kurniawan",
+    role: "Mitra Paket Platinum · Semarang",
+    quote: "Outlet terlihat profesional tanpa harus membangun semuanya dari nol.",
   },
 ];
 
@@ -39,7 +46,7 @@ export function Testimonials() {
   const s = useSlider();
 
   return (
-    <section id="testimoni" className="pt-28 sm:pt-40">
+    <section id="testimoni" className="section-testimonials pt-20 sm:pt-28">
       <SectionHeading
         lines={[
           <>Cerita Nyata</>,
@@ -56,13 +63,13 @@ export function Testimonials() {
       </Reveal>
 
       <div className="mt-8 flex justify-center gap-2">
-        <CircleButton label="Testimoni sebelumnya" onClick={() => s.scrollByCard(-1)}>
+        <CircleButton label="Testimoni sebelumnya" onClick={() => s.scrollByCard(-1, 2)}>
           <Arrow className="rotate-[225deg]" />
         </CircleButton>
         <CircleButton
           label="Testimoni berikutnya"
           variant="accent"
-          onClick={() => s.scrollByCard(1)}
+          onClick={() => s.scrollByCard(1, 2)}
         >
           <Arrow className="rotate-45" />
         </CircleButton>
@@ -70,7 +77,7 @@ export function Testimonials() {
 
       <div
         ref={s.ref}
-        className="mt-8 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-[9vw] pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mx-auto mt-8 flex max-w-3xl snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {testimonials.map((t, i) => (
           <motion.article
@@ -79,7 +86,7 @@ export function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="hairline flex w-[82vw] min-w-[82vw] shrink-0 snap-center flex-col rounded-[18px] bg-card p-5 sm:w-[46%] sm:min-w-0 sm:snap-none lg:w-[31%]"
+            className="hairline flex w-full min-w-full shrink-0 snap-center flex-col rounded-[18px] bg-card p-6 sm:w-[calc((100%_-_1rem)/2)] sm:min-w-[calc((100%_-_1rem)/2)] sm:p-7"
           >
             <div className="flex items-center gap-1 text-accent-foreground">
               {[0, 1, 2, 3, 4].map((n) => (
@@ -87,25 +94,15 @@ export function Testimonials() {
               ))}
             </div>
             <p className="mt-4 flex-1 text-[13px] leading-relaxed">"{t.quote}"</p>
-            <div className="mt-6 flex items-center gap-3">
-              <img
-                src={t.img}
-                loading="lazy"
-                width={512}
-                height={512}
-                alt={`Foto ${t.name}, mitra Benice Coffee`}
-                className="size-10 shrink-0 rounded-full object-cover"
-              />
-              <div className="min-w-0">
-                <p className="truncate text-[13px] font-medium">{t.name}</p>
-                <p className="truncate text-[11px] text-muted-foreground">{t.role}</p>
-              </div>
+            <div className="mt-6 border-t border-border pt-4">
+              <p className="text-[13px] font-medium">{t.name}</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">{t.role}</p>
             </div>
           </motion.article>
         ))}
       </div>
 
-      <Reveal delay={0.1} className="mt-10 flex justify-center">
+      <Reveal delay={0.1} className="mt-5 flex justify-center pb-16 sm:mt-7 sm:pb-24">
         <ContactButtons />
       </Reveal>
     </section>

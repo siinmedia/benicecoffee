@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
-import { canonicalLink, faqSchema, jsonLdScript, localBusinessSchema, socialMeta, websiteSchema } from "@/lib/seo";
+import {
+  canonicalLink,
+  faqSchema,
+  jsonLdScript,
+  localBusinessSchema,
+  socialMeta,
+  websiteSchema,
+} from "@/lib/seo";
 import { Hero } from "@/components/site/Hero";
 import { ControlBar } from "@/components/site/ControlBar";
 import { Menu } from "@/components/site/Menu";
@@ -13,6 +20,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { JoinSteps } from "@/components/site/JoinSteps";
 import { Newsletter } from "@/components/site/Newsletter";
 import { Footer } from "@/components/site/Footer";
+import { Outlets } from "@/components/site/Outlets";
 
 const title = "Benice Coffee — Paket Usaha Kopi Mulai Rp 4,9 Juta";
 const description =
@@ -22,27 +30,34 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: socialMeta({ title, description, path: "/" }),
     links: [canonicalLink("/")],
-    scripts: [jsonLdScript(localBusinessSchema()), jsonLdScript(websiteSchema()), jsonLdScript(faqSchema(FAQS))],
+    scripts: [
+      jsonLdScript(localBusinessSchema()),
+      jsonLdScript(websiteSchema()),
+      jsonLdScript(faqSchema(FAQS)),
+    ],
   }),
   component: Index,
 });
 
 function Index() {
   return (
-    <main className="mx-auto min-h-screen w-full max-w-[1440px] px-3 sm:px-6">
+    <main className="min-h-screen w-full">
       <Navbar />
       <Hero />
       <ControlBar />
       <StatsStrip />
-      <Menu />
-      <Gallery />
-      <Pricing />
-      <ProfitCalculator />
-      <Testimonials />
-      <Faq />
-      <JoinSteps />
-      <Newsletter />
-      <Footer />
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
+        <Menu />
+        <Gallery />
+        <Pricing />
+        <ProfitCalculator />
+        <Testimonials />
+        <Outlets preview />
+        <Faq />
+        <JoinSteps />
+        <Newsletter />
+        <Footer />
+      </div>
     </main>
   );
 }

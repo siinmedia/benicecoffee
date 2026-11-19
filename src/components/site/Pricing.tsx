@@ -2,12 +2,17 @@ import { motion } from "motion/react";
 import { Check } from "lucide-react";
 import { Pill, Reveal, SectionHeading } from "./ui";
 import { ContactButtons } from "./ContactButtons";
+import hematImage from "@/assets/paket/hemat.webp";
+import portableImage from "@/assets/paket/portable.webp";
+import platinumImage from "@/assets/paket/platinum.webp";
+import neonPremiumImage from "@/assets/paket/neonbox premium.webp";
+import neonLuxuryImage from "@/assets/paket/neonbox luxury.webp";
 
 const packages = [
   {
     name: "Paket Hemat",
     image:
-      "https://cdn.anggeraji.web.id/lp-benicecoffee/paket/Paket%20Hemat%20Be%20Nice%20Coffee.webp",
+      hematImage,
     price: "Rp 3.450.000",
     note: "Paket awal Be Nice Coffee",
     desc: "Pilihan paling ekonomis untuk memulai bisnis minuman dengan modal terjangkau.",
@@ -23,7 +28,7 @@ const packages = [
   {
     name: "Paket Portable",
     image:
-      "https://cdn.anggeraji.web.id/lp-benicecoffee/paket/Paket%20Portable%20Be%20Nice%20Coffee.webp",
+      portableImage,
     price: "Rp 4.990.000",
     note: "Booth Portable + branding",
     desc: "Solusi praktis untuk mulai berjualan dengan booth yang mudah ditempatkan di berbagai lokasi.",
@@ -40,7 +45,7 @@ const packages = [
   {
     name: "Paket Platinum",
     image:
-      "https://cdn.anggeraji.web.id/lp-benicecoffee/paket/Paket%20Platinum%20Be%20Nice%20Coffee.webp",
+      platinumImage,
     price: "Rp 7.890.000",
     note: "Booth Platinum",
     desc: "Pilihan profesional untuk kamu yang ingin memiliki booth Be Nice Coffee dengan tampilan lebih menarik dan siap jualan.",
@@ -58,7 +63,7 @@ const packages = [
   {
     name: "Neon Box Premium",
     image:
-      "https://cdn.anggeraji.web.id/lp-benicecoffee/paket/Paket%20Neon%20Box%20Premium%20Be%20Nice%20Coffee.webp",
+      neonPremiumImage,
     price: "Rp 22.290.000",
     note: "Booth Neon Box Premium",
     desc: "Untuk kamu yang ingin membangun outlet dengan tampilan lebih premium dan profesional.",
@@ -76,7 +81,7 @@ const packages = [
   {
     name: "Neon Box Luxury",
     image:
-      "https://cdn.anggeraji.web.id/lp-benicecoffee/paket/Paket%20Neon%20Box%20Luxury%20Be%20Nice%20Coffee.webp",
+      neonLuxuryImage,
     price: "Rp 31.590.000",
     note: "Booth Neon Box Luxury",
     desc: "Paket paling lengkap untuk membangun outlet Be Nice Coffee yang lebih premium dan siap operasional.",
@@ -98,8 +103,12 @@ const packages = [
 
 export function Pricing() {
   return (
-    <section id="paket" className="pt-28 sm:pt-40">
+    <section id="paket" className="section-pricing py-16 sm:py-24">
+      <div className="grid gap-8 border-b border-foreground/15 pb-10 sm:grid-cols-[1fr_0.8fr] sm:items-end sm:gap-16">
+      <div>
+      <p className="section-kicker">Paket usaha · Benice Coffee</p>
       <SectionHeading
+        className="mt-3"
         lines={[
           <>Lima Paket</>,
           <>
@@ -109,13 +118,20 @@ export function Pricing() {
       />
       <Reveal
         delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
+        className="max-w-md text-left text-sm leading-relaxed text-muted-foreground sm:justify-self-end sm:text-right"
       >
-        Semua paket usaha kopi sudah termasuk booth, peralatan, bahan baku awal, resep, dan pelatihan. Tanpa
-        royalti bulanan.
+        Semua paket usaha kopi sudah termasuk booth, peralatan, bahan baku awal, resep, dan
+        pelatihan. Tanpa royalti bulanan.
       </Reveal>
+      </div>
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
+        <span>Sesuaikan paket dengan lokasi dan target usaha kamu.</span>
+        <span className="font-bold uppercase tracking-[0.14em] text-primary">5 pilihan · tanpa royalti</span>
+      </div>
+      </div>
+
+      <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {packages.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.06}>
             <motion.article
@@ -126,20 +142,21 @@ export function Pricing() {
               }`}
             >
               {p.image ? (
-                <div className="aspect-[16/10] overflow-hidden bg-surface">
+                <div className="flex aspect-square items-center justify-center overflow-hidden bg-transparent">
                   <img
                     src={p.image}
                     alt={`Tampilan ${p.name} Be Nice Coffee`}
                     loading="lazy"
-                    className="size-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="size-full object-contain transition-transform duration-500 hover:scale-[1.05]"
                   />
                 </div>
               ) : null}
 
               <div className="flex flex-1 flex-col p-5">
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start justify-between gap-3 border-b border-current/15 pb-4">
                   <div>
-                    <p className="text-[13px] font-medium tracking-tight">{p.name}</p>
+                    <p className="section-kicker">Paket {String(i + 1).padStart(2, "0")}</p>
+                    <p className="mt-1 text-base font-bold tracking-tight">{p.name}</p>
                     <p
                       className={`mt-0.5 text-xs ${p.featured ? "opacity-80" : "text-muted-foreground"}`}
                     >
@@ -176,7 +193,12 @@ export function Pricing() {
                 </ul>
 
                 <div className="mt-5">
-                  <ContactButtons paket={p.name} compact onDark={p.featured ?? false} label="Ambil paket ini" />
+                  <ContactButtons
+                    paket={p.name}
+                    compact
+                    onDark={p.featured ?? false}
+                    label="Ambil paket ini"
+                  />
                 </div>
               </div>
             </motion.article>

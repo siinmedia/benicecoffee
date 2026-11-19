@@ -3,9 +3,9 @@ import { Reveal } from "./ui";
 
 export function Newsletter() {
   return (
-    <section className="pt-28 pb-8 sm:pt-40">
+    <section className="section-cta pt-20 pb-8 sm:pt-28">
       <Reveal>
-        <div className="rounded-[20px] bg-primary px-4 py-14 text-center text-primary-foreground sm:py-20">
+        <div className="bg-primary px-4 py-14 text-center text-primary-foreground sm:py-20">
           <h2 className="display mx-auto max-w-2xl text-[clamp(2.25rem,6vw,4rem)]">
             <span className="block">Siap Jadi Mitra</span>
             <span className="block">

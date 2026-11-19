@@ -72,10 +72,10 @@ export function CircleButton({
   return (
     <Comp
       {...(href
-        ? ({ href, ...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {}) } as Record<
-            string,
-            unknown
-          >)
+        ? ({
+            href,
+            ...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {}),
+          } as Record<string, unknown>)
         : ({ type: "button" } as Record<string, unknown>))}
       onClick={onClick}
       aria-label={label}
@@ -119,15 +119,9 @@ export function Reveal({
   );
 }
 
-export function SectionHeading({
-  lines,
-  className,
-}: {
-  lines: ReactNode[];
-  className?: string;
-}) {
+export function SectionHeading({ lines, className }: { lines: ReactNode[]; className?: string }) {
   return (
-    <Reveal className={cn("text-center", className)}>
+    <Reveal className={cn("text-left", className)}>
       <h2 className="display text-[clamp(2.25rem,6vw,4rem)]">
         {lines.map((line, i) => (
           <span key={i} className="block">
@@ -142,7 +136,12 @@ export function SectionHeading({
 export function Arrow({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 12 12" className={cn("size-3", className)} fill="none" aria-hidden>
-      <path d="M3 9L9 3M9 3H4M9 3v5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M3 9L9 3M9 3H4M9 3v5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

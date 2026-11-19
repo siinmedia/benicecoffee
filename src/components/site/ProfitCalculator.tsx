@@ -21,7 +21,7 @@ export function ProfitCalculator() {
   const bep = net > 0 ? paket.price / net : null;
 
   return (
-    <section id="simulasi" className="pt-28 sm:pt-40">
+    <section id="simulasi" className="section-simulation pt-20 sm:pt-28">
       <SectionHeading
         lines={[
           <>
@@ -114,10 +114,7 @@ export function ProfitCalculator() {
               {[
                 ["Laba kotor / bulan", idr(gross)],
                 ["Laba bersih / bulan", net > 0 ? idr(net) : "—"],
-                [
-                  `Balik modal ${paket.name}`,
-                  bep !== null ? `${bep.toFixed(1)} bulan` : "—",
-                ],
+                [`Balik modal ${paket.name}`, bep !== null ? `${bep.toFixed(1)} bulan` : "—"],
               ].map(([k, v]) => (
                 <div
                   key={k}
@@ -128,8 +125,9 @@ export function ProfitCalculator() {
                 </div>
               ))}
               <p className="text-xs leading-relaxed text-muted-foreground">
-                Estimasi kasar berdasarkan input di samping ({idr(paket.price)} investasi {paket.name}).
-                Angka aktual tergantung lokasi dan operasional — konsultan kami bantu hitung detailnya gratis.
+                Estimasi kasar berdasarkan input di samping ({idr(paket.price)} investasi{" "}
+                {paket.name}). Angka aktual tergantung lokasi dan operasional — konsultan kami bantu
+                hitung detailnya gratis.
               </p>
               {net <= 0 ? (
                 <p className="rounded-[12px] bg-destructive/10 p-3 text-xs text-destructive">

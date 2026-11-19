@@ -7,7 +7,7 @@ export function Menu() {
   const s = useSlider();
 
   return (
-    <section id="menu" className="pt-28 sm:pt-40">
+    <section id="menu" className="section-menu py-16 sm:py-24">
       <SectionHeading
         lines={[
           <>Menu yang</>,
@@ -19,25 +19,18 @@ export function Menu() {
 
       <Reveal
         delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
+        className="max-w-md text-left text-[13px] leading-relaxed text-muted-foreground sm:text-right"
       >
-        20+ varian racikan Benice Coffee dengan resep terstandar, harga
-        terjangkau, dan margin sehat untuk mitra.
+        20+ varian racikan Benice Coffee dengan resep terstandar, harga terjangkau, dan margin sehat
+        untuk mitra.
       </Reveal>
 
-      <div className="mt-8 flex justify-center gap-2">
-        <CircleButton
-          label="Menu sebelumnya"
-          onClick={() => s.scrollByCard(-1)}
-        >
+      <div className="mt-7 flex justify-end gap-2">
+        <CircleButton label="Menu sebelumnya" onClick={() => s.scrollByCard(-1)}>
           <Arrow className="rotate-[225deg]" />
         </CircleButton>
 
-        <CircleButton
-          label="Menu berikutnya"
-          variant="accent"
-          onClick={() => s.scrollByCard(1)}
-        >
+        <CircleButton label="Menu berikutnya" variant="accent" onClick={() => s.scrollByCard(1)}>
           <Arrow className="rotate-45" />
         </CircleButton>
       </div>
@@ -45,12 +38,10 @@ export function Menu() {
       <div
         ref={s.ref}
         className="
-          -mx-3 mt-8 flex
+          mt-8 flex
           snap-x snap-mandatory
           gap-4 overflow-x-auto
-          px-[calc((100vw-62vw)/2)]
-          pb-2
-          sm:mx-0
+          px-1 pb-3
           sm:px-0
           [scrollbar-width:none]
           [&::-webkit-scrollbar]:hidden
@@ -60,12 +51,12 @@ export function Menu() {
           <div
             key={m.name}
             className="
-              w-[62vw]
+              w-[min(78vw,280px)]
               shrink-0
               snap-center
-              sm:w-[30%]
+              sm:w-[calc((100%_-_1rem)/2)]
               sm:snap-start
-              lg:w-[19%]
+              lg:w-[calc((100%_-_3rem)/4)]
             "
           >
             <motion.div
@@ -92,11 +83,7 @@ export function Menu() {
                 />
 
                 {m.tag ? (
-                  <Pill
-                    as="div"
-                    variant="accent"
-                    className="absolute top-3 left-3 h-7 px-3"
-                  >
+                  <Pill as="div" variant="accent" className="absolute top-3 left-3 h-7 px-3">
                     {m.tag}
                   </Pill>
                 ) : null}
@@ -105,12 +92,8 @@ export function Menu() {
               <div className="mt-3 flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <p className="truncate text-[13px]">{m.name}</p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                    {m.group}
-                  </p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                    {m.desc}
-                  </p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{m.group}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{m.desc}</p>
                 </div>
               </div>
             </motion.div>
@@ -118,7 +101,7 @@ export function Menu() {
         ))}
       </div>
 
-      <Reveal delay={0.2} className="mt-10 flex justify-center">
+      <Reveal delay={0.2} className="mt-10 flex justify-start pb-16 sm:pb-24">
         <Pill href="/menu" className="px-6">
           Lihat menu lengkap <Arrow />
         </Pill>

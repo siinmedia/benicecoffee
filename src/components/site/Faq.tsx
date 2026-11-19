@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Reveal, SectionHeading } from "./ui";
-import { ContactButtons } from "./ContactButtons";
 
 // Satu sumber kebenaran Q&A — dipakai komponen + schema FAQPage (index route).
 // Jawaban harus teks yang visibly muncul di halaman (syarat schema Google).
@@ -38,37 +37,38 @@ export const FAQS = [
 
 export function Faq() {
   return (
-    <section id="faq" className="pt-28 sm:pt-40">
-      <SectionHeading
-        lines={[
-          <>
-            Pertanyaan <em className="italic">Populer</em>
-          </>,
-        ]}
-      />
-      <Reveal
-        delay={0.08}
-        className="mx-auto mt-5 max-w-md text-center text-[13px] leading-relaxed text-muted-foreground"
-      >
-        Masih ragu? Ini jawaban atas hal yang paling sering ditanyakan calon mitra paket usaha kopi Benice Coffee.
-      </Reveal>
-      <Reveal delay={0.1} className="mx-auto mt-8 max-w-2xl">
-        <Accordion type="single" collapsible>
-          {FAQS.map(([q, a]) => (
-            <AccordionItem key={q} value={q} className="hairline mb-2 rounded-[14px] bg-card px-4">
-              <AccordionTrigger className="text-left text-[13px] hover:no-underline">
-                {q}
-              </AccordionTrigger>
-              <AccordionContent className="text-[13px] leading-relaxed text-muted-foreground">
-                {a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Reveal>
-      <Reveal delay={0.1} className="mt-8 flex justify-center">
-        <ContactButtons />
-      </Reveal>
+    <section id="faq" className="section-faq overflow-visible py-16 sm:py-24">
+      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="section-kicker">FAQ · Benice Coffee</p>
+          <SectionHeading
+            className="mt-3 max-w-md"
+            lines={[
+              <>
+                Pertanyaan <em className="italic">Populer</em>
+              </>,
+            ]}
+          />
+          <Reveal delay={0.08} className="mt-5 max-w-sm text-[13px] leading-relaxed text-muted-foreground sm:text-base">
+            Masih ragu? Temukan jawaban dari hal yang paling sering ditanyakan calon mitra paket usaha kopi Benice Coffee.
+          </Reveal>
+          <div className="mt-8 hidden h-px w-20 bg-primary lg:block" />
+        </div>
+        <Reveal delay={0.1}>
+          <Accordion type="single" collapsible>
+            {FAQS.map(([q, a], i) => (
+              <AccordionItem key={q} value={q} className="border-b border-foreground/15 py-1">
+                <AccordionTrigger className="gap-6 py-5 text-left text-sm font-medium hover:no-underline sm:text-base">
+                  <span className="flex items-start gap-4"><span className="font-mono text-[10px] text-primary">0{i + 1}</span>{q}</span>
+                </AccordionTrigger>
+                <AccordionContent className="max-w-xl pb-5 pl-8 text-[13px] leading-relaxed text-muted-foreground">
+                  {a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
+      </div>
     </section>
   );
 }

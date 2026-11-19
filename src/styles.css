@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Benice DM Sans";
+  src: url("https://mahaniagaartha.com/fonts/dmsans-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -62,28 +70,28 @@
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.205 0.006 28.88);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.006 28.88);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.006 28.88);
-  --primary: oklch(0.62 0.245 17.6);
+  --radius: 0.625rem;
+  --background: #f7f5f2;
+  --foreground: #211b19;
+  --card: #f7f5f2;
+  --card-foreground: #211b19;
+  --popover: #f7f5f2;
+  --popover-foreground: #211b19;
+  --primary: #e50909;
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.53 0.21 17.6);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.97 0.003 28.88);
-  --muted-foreground: oklch(0.571 0.017 28.88);
-  --accent: oklch(0.94 0.137 62.9);
-  --accent-foreground: oklch(0.205 0.006 28.88);
+  --secondary: #211b19;
+  --secondary-foreground: #f7f5f2;
+  --muted: #efebe6;
+  --muted-foreground: #665b56;
+  --accent: #e50909;
+  --accent-foreground: #f7f5f2;
   --destructive: oklch(0.62 0.245 17.6);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.003 28.88);
-  --input: oklch(0.9 0.003 28.88);
-  --ring: oklch(0.205 0.006 28.88);
-  --surface: oklch(0.97 0.003 28.88);
-  --hairline: oklch(0.205 0.006 28.88 / 0.75);
+  --border: #211b1924;
+  --input: #211b1930;
+  --ring: #e50909;
+  --surface: #efebe6;
+  --hairline: #211b1959;
   --chart-1: oklch(0.62 0.245 17.6);
   --chart-2: oklch(0.53 0.21 17.6);
   --chart-3: oklch(0.94 0.137 62.9);
@@ -101,10 +109,10 @@
 
 @theme inline {
   --color-surface: var(--surface);
-  --font-sans:
-    "Inter", "Helvetica Neue", system-ui, sans-serif;
-  --radius-hero: 20px;
-  --radius-card: 16px;
+  --font-sans: "Benice DM Sans", sans-serif;
+  --font-display: "Benice DM Sans", sans-serif;
+  --radius-hero: 10px;
+  --radius-card: 10px;
 }
 
 .dark {
@@ -117,11 +125,11 @@
   --primary: oklch(0.62 0.245 17.6);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.53 0.21 17.6);
-  --secondary-foreground: oklch(1 0 0);
+  --secondary-foreground: #f7f5f2;
   --muted: oklch(0.286 0.009 28.88);
-  --muted-foreground: oklch(0.571 0.017 28.88);
+  --muted-foreground: #665b56;
   --accent: oklch(0.94 0.137 62.9);
-  --accent-foreground: oklch(0.205 0.006 28.88);
+  --accent-foreground: #f7f5f2;
   --destructive: oklch(0.62 0.245 17.6);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(1 0 0 / 10%);
@@ -153,14 +161,136 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @utility display {
+  font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+@utility section-kicker {
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee-benice {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee-benice {
+  animation: marquee-benice 28s linear infinite;
+}
+
+.section-menu,
+.section-gallery,
+.section-pricing,
+.section-simulation,
+.section-faq {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem));
+}
+
+.section-menu {
+  border-top: 1px solid color-mix(in oklab, var(--foreground) 16%, transparent);
+}
+
+.section-gallery {
+  overflow: hidden;
+  background: #211b19;
+  color: var(--background);
+  padding-bottom: 2.5rem;
+}
+
+.section-gallery .text-muted-foreground,
+.section-simulation .text-muted-foreground {
+  color: color-mix(in oklab, var(--background) 68%, transparent);
+}
+
+.section-gallery > .text-muted-foreground,
+.section-simulation > .text-muted-foreground,
+.section-simulation > div > .text-muted-foreground {
+  color: #f7f5f2;
+  opacity: 0.74;
+}
+
+.section-gallery .display,
+.section-simulation .display {
+  color: #f7f5f2;
+}
+
+.section-simulation .bg-card {
+  color: #211b19;
+}
+
+.section-simulation .bg-card .text-muted-foreground {
+  color: #665b56;
+  opacity: 1;
+}
+
+.section-simulation .bg-card .display {
+  color: #211b19;
+}
+
+.section-gallery a,
+.section-simulation a,
+.section-gallery button,
+.section-simulation button {
+  position: relative;
+  z-index: 1;
+}
+
+.section-pricing {
+  background: var(--muted);
+  padding-bottom: 2.75rem;
+}
+
+.section-simulation {
+  background: #211b19;
+  color: var(--background);
+  padding-bottom: 2.75rem;
+}
+
+.section-simulation .section-kicker,
+.section-gallery .section-kicker {
+  color: var(--accent);
+}
+
+.section-faq {
+  background: var(--muted);
+  padding-bottom: 2.5rem;
+}
+
+.section-testimonials {
+  border-top: 1px solid color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+.section-cta {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem));
+  background: var(--primary);
+  position: relative;
+  z-index: 1;
 }
 
 @utility hairline {
@@ -177,5 +307,11 @@
 @media (max-width: 639px) {
   body {
     padding-bottom: 64px;
+  }
+
+  .section-cta,
+  .section-simulation,
+  .section-pricing {
+    padding-bottom: 5rem;
   }
 }
